@@ -1,0 +1,283 @@
+USE [master]
+GO
+/****** Object:  Database [Proyectofinal]    Script Date: 4/6/2021 6:16:54 PM ******/
+CREATE DATABASE [Proyectofinal]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Proyecto final', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\Proyecto final.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'Proyecto final_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA\Proyecto final_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [Proyectofinal] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Proyectofinal].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Proyectofinal] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Proyectofinal] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Proyectofinal] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Proyectofinal] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Proyectofinal] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET RECOVERY FULL 
+GO
+ALTER DATABASE [Proyectofinal] SET  MULTI_USER 
+GO
+ALTER DATABASE [Proyectofinal] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Proyectofinal] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Proyectofinal] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Proyectofinal] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [Proyectofinal] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [Proyectofinal] SET QUERY_STORE = OFF
+GO
+USE [Proyectofinal]
+GO
+/****** Object:  Table [dbo].[Contactos]    Script Date: 4/6/2021 6:16:55 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Contactos](
+	[Codigo] [int] NOT NULL,
+	[Nombre] [nchar](50) NOT NULL,
+	[Apellidos] [nchar](50) NOT NULL,
+	[Codigopostal] [nchar](10) NOT NULL,
+	[Direccion] [nchar](50) NOT NULL,
+	[Telefono] [nchar](10) NULL,
+ CONSTRAINT [PK_Contactos] PRIMARY KEY CLUSTERED 
+(
+	[Codigo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Datospersonales]    Script Date: 4/6/2021 6:16:55 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Datospersonales](
+	[Codigo] [int] NOT NULL,
+	[Telefonocelular] [nchar](10) NULL,
+	[E-mail] [nchar](50) NULL,
+	[Fechadenacimiento] [nchar](50) NOT NULL,
+	[Sexo] [nchar](1) NOT NULL,
+	[Estadocivil] [nchar](15) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Maintable]    Script Date: 4/6/2021 6:16:55 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Maintable](
+	[Codigo] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [nchar](50) NOT NULL,
+	[Apellidos] [nchar](50) NOT NULL,
+	[Direccion] [nchar](30) NOT NULL,
+	[Codigopostal] [nchar](10) NOT NULL,
+	[Telefonoresidencial] [nchar](10) NOT NULL,
+	[Telefonocelular] [nchar](10) NULL,
+	[Email] [nchar](50) NULL,
+	[Sexo] [nchar](1) NOT NULL,
+	[Direcciondetrabajo] [nchar](50) NULL,
+	[Fechadenacimiento] [nchar](15) NOT NULL,
+	[Estadocivil] [nchar](10) NOT NULL,
+ CONSTRAINT [PK_Main table] PRIMARY KEY CLUSTERED 
+(
+	[Codigo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Ubicacion]    Script Date: 4/6/2021 6:16:55 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ubicacion](
+	[Codigo postal] [nchar](10) NOT NULL,
+	[Direccion] [nchar](50) NOT NULL,
+	[Direcciondetrabajo] [nchar](50) NULL,
+ CONSTRAINT [PK_Ubicacion] PRIMARY KEY CLUSTERED 
+(
+	[Codigo postal] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Contactos]  WITH CHECK ADD  CONSTRAINT [FK_Contactos_Ubicacion] FOREIGN KEY([Codigopostal])
+REFERENCES [dbo].[Ubicacion] ([Codigo postal])
+GO
+ALTER TABLE [dbo].[Contactos] CHECK CONSTRAINT [FK_Contactos_Ubicacion]
+GO
+/****** Object:  StoredProcedure [dbo].[usp_Data_FContacto_Actualizar]    Script Date: 4/6/2021 6:16:55 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_Data_FContacto_Actualizar] 
+(
+@Codigo int,
+@Nombre varchar(50),
+@Apellidos varchar(50),
+@Direccion varchar(30),
+@Codigopostal varchar(10),
+@Telefonoresidencial varchar(10),
+@Telefonocelular varchar(10),
+@Email varchar(50),
+@Sexo varchar(10),
+@Direcciondetrabajo varchar(50),
+@Fechadenacimiento varchar(15),
+@Estadocivil varchar(10)
+
+)
+AS
+
+Update Maintable set 
+					
+					Nombre=@Nombre, 
+					Apellidos=@Apellidos, 
+					Direccion=@Direccion, 
+					Codigopostal=@Codigopostal, 
+					Telefonoresidencial=@Telefonoresidencial, 
+					Telefonocelular=@Telefonocelular, 
+					Email=@Email, 
+					Sexo=@Sexo, 
+					Direcciondetrabajo=@Direcciondetrabajo,
+					Fechadenacimiento=@Fechadenacimiento, 
+					Estadocivil=@Estadocivil
+					
+					
+					
+					where Codigo=@Codigo
+
+Select @@ROWCOUNT as cantidad
+GO
+/****** Object:  StoredProcedure [dbo].[usp_Data_FContacto_Eliminar]    Script Date: 4/6/2021 6:16:55 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_Data_FContacto_Eliminar] 
+	@Codigo int
+AS
+BEGIN
+	delete from Maintable where Codigo=@Codigo
+	
+	select @@ROWCOUNT as CantidadAfectada
+	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_Data_FContacto_GetAll]    Script Date: 4/6/2021 6:16:55 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_Data_FContacto_GetAll]
+	
+AS
+BEGIN
+	select Codigo,Nombre,Apellidos,Direccion,Codigopostal,Telefonoresidencial,Telefonocelular,
+	Email,Sexo,Direcciondetrabajo,Fechadenacimiento,Estadocivil from Maintable
+END
+GO
+/****** Object:  StoredProcedure [dbo].[usp_Data_FContacto_Insertar]    Script Date: 4/6/2021 6:16:55 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[usp_Data_FContacto_Insertar] 
+(
+
+@Nombre varchar(50),
+@Apellidos varchar(50),
+@Direccion varchar(30),
+@Codigopostal varchar(10),
+@Telefonoresidencial varchar(10),
+@Telefonocelular varchar(10),
+@Email varchar(50),
+@Sexo varchar(10),
+@Direcciondetrabajo varchar(50),
+@Fechadenacimiento varchar(15),
+@Estadocivil varchar(10)
+
+)
+AS
+
+insert into Maintable
+			(
+				Nombre,
+				Apellidos,
+				Direccion,
+				Codigopostal,
+				Telefonoresidencial,
+				Telefonocelular,
+				Email,
+				Sexo,
+				Direcciondetrabajo,
+				Fechadenacimiento,
+				Estadocivil
+			)
+values (		@Nombre,
+				@Apellidos,
+				@Direccion,
+				@Codigopostal,
+				@Telefonoresidencial,
+				@Telefonocelular,
+				@Email,
+				@Sexo,
+				@Direcciondetrabajo,
+				@Fechadenacimiento,
+				@Estadocivil
+		)
+
+Select @@IDENTITY
+GO
+USE [master]
+GO
+ALTER DATABASE [Proyectofinal] SET  READ_WRITE 
+GO

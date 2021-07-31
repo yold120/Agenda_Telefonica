@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agenda_Telefonica", "Agenda_Telefonica\Agenda_Telefonica.csproj", "{1936184D-FEBA-4CD5-8102-0A1ABD9A0627}"
+EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "Agenda Telefonica", "Agenda Telefonica\Agenda Telefonica.aiproj", "{E8C182D4-4D3C-4E12-B67F-A87C9006BD95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1936184D-FEBA-4CD5-8102-0A1ABD9A0627}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{1936184D-FEBA-4CD5-8102-0A1ABD9A0627}.All|Any CPU.Build.0 = Release|Any CPU
+		{1936184D-FEBA-4CD5-8102-0A1ABD9A0627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1936184D-FEBA-4CD5-8102-0A1ABD9A0627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1936184D-FEBA-4CD5-8102-0A1ABD9A0627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1936184D-FEBA-4CD5-8102-0A1ABD9A0627}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8C182D4-4D3C-4E12-B67F-A87C9006BD95}.All|Any CPU.ActiveCfg = DefaultBuild
+		{E8C182D4-4D3C-4E12-B67F-A87C9006BD95}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{E8C182D4-4D3C-4E12-B67F-A87C9006BD95}.Debug|Any CPU.Build.0 = DefaultBuild
+		{E8C182D4-4D3C-4E12-B67F-A87C9006BD95}.Release|Any CPU.ActiveCfg = DefaultBuild
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B221BEEB-67E6-46CF-B5F8-7C2CA682A17A}
+	EndGlobalSection
+EndGlobal
